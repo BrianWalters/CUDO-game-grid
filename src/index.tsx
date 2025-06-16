@@ -1,17 +1,18 @@
 import {render} from 'preact';
 import './style.css';
-import {getGames} from "./functions/getGames";
+import {gameSchema, getGames} from "./functions/getGames";
 import {useEffect, useState} from 'preact/compat';
+import {z} from "zod";
 
 export function App() {
-	const [games, setGames] = useState()
+	const [games, setGames] = useState<Array<z.infer<typeof gameSchema>>>(null)
 
 	useEffect(() => {
 		if (!games) {
 			getGames()
 				.then(g => setGames(g))
 		}
-	}, [games])
+	}, [games, setGames])
 
 	return (
 		<div>
