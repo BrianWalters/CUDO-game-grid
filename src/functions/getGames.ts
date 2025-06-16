@@ -22,7 +22,14 @@ const query = `*[_type == 'game'] {
     name
   },
   website,
-  "images": images[].asset->{ url }
+  "images": images[].asset->{
+    _id,
+    url
+  },
+  "season": season->{
+    _id,
+    name
+  }
 }`
 
 export const gameSchema = z.object({
@@ -46,9 +53,14 @@ export const gameSchema = z.object({
         name: z.string()
     })),
     website: z.string().nullable(),
-    image: z.array(z.object({
+    images: z.array(z.object({
+        _id: z.string(),
         url: z.string()
-    })).optional()
+    })),
+    season: z.object({
+        _id: z.string(),
+        name: z.string()
+    })
 })
 
 export async function getGames(): Promise<z.infer<typeof gameSchema>[]> {

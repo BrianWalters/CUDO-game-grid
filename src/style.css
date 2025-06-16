@@ -1,0 +1,28 @@
+.cudo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+    gap: 1rem;
+}
+
+.cudo-grid__name {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.cudo-grid__game-card {
+    border: 1px solid #333;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.cudo-grid__list {
+    list-style: none inside;
+    padding: 0;
+}
+
+.cudo-grid__gallery {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
