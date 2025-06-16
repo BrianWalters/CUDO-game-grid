@@ -48,7 +48,7 @@ export const gameSchema = z.object({
     website: z.string().nullable(),
     image: z.array(z.object({
         url: z.string()
-    }))
+    })).optional()
 })
 
 export async function getGames(): Promise<z.infer<typeof gameSchema>[]> {
