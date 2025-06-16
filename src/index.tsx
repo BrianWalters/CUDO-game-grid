@@ -1,11 +1,10 @@
 import {render} from 'preact';
 import './style.css';
-import {gameSchema, getGames} from "./functions/getGames";
+import {Game, getGames} from "./functions/getGames";
 import {useEffect, useState} from 'preact/compat';
-import {z} from "zod";
 
 export function App() {
-	const [games, setGames] = useState<Array<z.infer<typeof gameSchema>>>(null)
+	const [games, setGames] = useState<Game[]>(null)
 
 	useEffect(() => {
 		if (!games) {
