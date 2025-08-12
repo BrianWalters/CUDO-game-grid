@@ -13,14 +13,14 @@ const query = `*[_type == 'game'] {
     _id,
     name
   },
-  "awards": awards[]->{
+  "awards": coalesce(awards[]->{
     _id,
     name
-  },
-  "runnerUpAwards": runnerUpAwards[]->{
+  }, []),
+  "runnerUpAwards": coalesce(runnerUpAwards[]->{
     _id,
     name
-  },
+  }, []),
   website,
   "images": images[].asset->{
     _id,
