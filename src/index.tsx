@@ -111,7 +111,6 @@ export function App() {
                                 <p class="cudo-grid__name">{g.name}</p>
                                 <p>{g.minimumPlayers} - {g.maximumPlayers} players</p>
                                 <p>{g.timeLower} - {g.timeUpper} minutes</p>
-                                <p><strong>Designed by</strong></p>
                                 <ul class="cudo-grid__list">
                                     {g.teamMembers.map(tm => (
                                         <li key={tm._id}>
@@ -133,13 +132,21 @@ export function App() {
                                     ))}
                                 </ul>
                                 <p>{g.summary}</p>
-                                {g.images && <div class="cudo-grid__gallery">
-                                    {g.images.map(i => (
-                                        <a key={i._id} href={i.url} target="_blank" rel="noreferrer">
-                                            <img alt="" src={`${i.url}?w=100`}/>
-                                        </a>
-                                    ))}
-                                </div>}
+                                {g.images && g.images.length > 0 &&
+                                    <img className="cudo-grid__image" alt="" src={`${g.images[0].url}?w=800`}/>
+                                }
+                                {g.images && g.images.length > 1 && <details className="cudo-grid__gallery-details">
+                                    <summary>
+                                        More game images
+                                    </summary>
+                                    <div className="cudo-grid__gallery">
+                                        {g.images.slice(1).map(i => (
+                                            <a key={i._id} href={i.url} target="_blank" rel="noreferrer">
+                                                <img className="cudo-grid__image" alt="" src={`${i.url}?w=800`}/>
+                                            </a>
+                                        ))}
+                                    </div>
+                                </details>}
                             </div>
                         )
                     })}
