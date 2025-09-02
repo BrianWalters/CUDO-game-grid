@@ -136,7 +136,7 @@ export function App() {
                                     <img className="cudo-grid__image" alt="" src={`${g.images[0].url}?w=800`}/>
                                 }
                                 {g.images && g.images.length > 1 && <details className="cudo-grid__gallery-details">
-                                    <summary>
+                                    <summary className="cudo-grid__gallery-summary">
                                         More game images
                                     </summary>
                                     <div className="cudo-grid__gallery">

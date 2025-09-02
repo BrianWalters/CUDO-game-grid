@@ -42,6 +42,10 @@
     padding: 0;
 }
 
+.cudp-grid__gallery-summary {
+    display: list-item;
+}
+
 .cudo-grid__gallery-details {
     margin-top: 1rem;
 }
