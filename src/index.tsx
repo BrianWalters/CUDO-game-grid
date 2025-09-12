@@ -1,7 +1,9 @@
 import {render} from 'preact';
 import './style.css';
-import {Game, getGames} from "./functions/getGames";
+import {getGames} from "./functions/getGames";
 import {useEffect, useState} from 'preact/compat';
+import {Game} from "./functions/GameSchema";
+import {makeDuration} from "./functions/makeDuration";
 
 export function App() {
     const [games, setGames] = useState<Game[]>(null)
@@ -114,7 +116,7 @@ export function App() {
                             <div className="cudo-grid__game-card" key={g._id}>
                                 <p class="cudo-grid__name">{g.name}</p>
                                 <p>{g.minimumPlayers} - {g.maximumPlayers} players</p>
-                                <p>{g.timeLower} - {g.timeUpper} minutes</p>
+                                <p>{makeDuration(g)}</p>
                                 <ul class="cudo-grid__list">
                                     {g.teamMembers.map(tm => (
                                         <li key={tm._id}>
