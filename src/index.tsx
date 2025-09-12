@@ -44,7 +44,11 @@ export function App() {
                         return 1;
                     })
                     setSeasons(seasons);
-                    setAwards(awards)
+                    setAwards(awards);
+                    setFilterSelections({
+                        award: null,
+                        season: seasons[seasons.length - 1].id
+                    })
                 })
         }
     }, [games, setGames])
