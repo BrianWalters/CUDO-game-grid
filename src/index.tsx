@@ -4,6 +4,7 @@ import {getGames} from "./functions/getGames";
 import {useEffect, useState} from 'preact/compat';
 import {Game} from "./functions/GameSchema";
 import {makeDuration} from "./functions/makeDuration";
+import {makePlayers} from "./functions/makePlayers";
 
 export function App() {
     const [games, setGames] = useState<Game[]>(null)
@@ -115,7 +116,7 @@ export function App() {
                         return (
                             <div className="cudo-grid__game-card" key={g._id}>
                                 <p class="cudo-grid__name">{g.name}</p>
-                                <p>{g.minimumPlayers} - {g.maximumPlayers} players</p>
+                                <p>{makePlayers(g)}</p>
                                 <p>{makeDuration(g)}</p>
                                 <ul class="cudo-grid__list">
                                     {g.teamMembers.map(tm => (
