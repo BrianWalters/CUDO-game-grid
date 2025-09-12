@@ -1,15 +1,40 @@
-# `create-preact`
+# CUDO Plays game grid
 
-<h2 align="center">
-  <img height="256" width="256" src="./src/assets/preact.svg">
-</h2>
+## Getting started
 
-<h3 align="center">Get started using Preact and Vite!</h3>
+`npm install`
 
-## Getting Started
+`npm run dev`
 
--   `npm run dev` - Starts a dev server at http://localhost:5173/
+## Technology
 
--   `npm run build` - Builds for production, emitting to `dist/`
+Content is stored in [Sanity](https://www.sanity.io/).
 
--   `npm run preview` - Starts a server at http://localhost:4173/ to test production build locally
+This widget uses Preact instead of React.
+
+Zod is used to parse the content from Sanity into something typed.
+
+## Build
+
+`npm run build`
+
+The output is in `dist`. The script and css can be copied or uploaded where ever you desire.
+
+## Usage
+
+For usage on Squarespace, you must host the script and css on another server.
+You cannot host any random files on Squarespace.
+
+Where ever you host them, you must make sure the `Access-Control-Allow-Origin` header is set to `*` so they
+can be used cross-domain in browsers.
+
+The files you upload will begin with `index` and then have random characters append. For example, `index-DUSFmbyG.js`.
+This is convenient because it will bust user's browser cache if you rebuild the files.
+
+You can then embed them into a Squarespace page using an "Embed Scripts" block with the following:
+
+```
+<div id="cudo-game-grid"></div>
+<script type="module" crossorigin src="https://yourhost.net/index-DUSFmbyG.js"></script>
+<link rel="stylesheet" crossorigin href="https://yourhost.net/index-CuVbqRIk.css">
+```
