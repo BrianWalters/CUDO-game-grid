@@ -109,6 +109,11 @@ export function App() {
                             })}
                         </select>
                     </label>
+                    <div>
+                        Legend:
+                        🥇 Award winner
+                        🥈 Runner-up
+                    </div>
                 </div>
                 {!gamesToShow() && <div>Nothing matches these filters.</div>}
                 <div class='cudo-grid__grid'>
@@ -118,7 +123,7 @@ export function App() {
                                 <p class="cudo-grid__name">{g.name}</p>
                                 <p>{makePlayers(g)}</p>
                                 <p>{makeDuration(g)}</p>
-                                <ul class="cudo-grid__list">
+                                <ul class="cudo-grid__designer-list">
                                     {g.teamMembers.map(tm => (
                                         <li key={tm._id}>
                                             {tm.name}
@@ -126,7 +131,7 @@ export function App() {
                                     ))}
                                 </ul>
                                 <p>{g.season.name}</p>
-                                <ul class="cudo-grid__list">
+                                <ul class="cudo-grid__award-list">
                                     {g.awards.map(a => (
                                         <li key={a._id}>
                                             🥇 {a.name}

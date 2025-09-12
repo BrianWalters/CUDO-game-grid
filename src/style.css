@@ -3,6 +3,7 @@
 }
 
 .cudo-grid__controls {
+    align-items: center;
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
@@ -37,7 +38,12 @@
     padding: 1rem;
 }
 
-.cudo-grid__list {
+.cudo-grid__designer-list {
+    list-style: disc inside;
+    padding: 0;
+}
+
+.cudo-grid__award-list {
     list-style: none inside;
     padding: 0;
 }
