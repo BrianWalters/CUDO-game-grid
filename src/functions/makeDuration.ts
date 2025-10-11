@@ -1,4 +1,4 @@
-import {Game} from "./GameSchema";
+import {Game} from "../types/GameSchema";
 
 export function makeDuration(game: Game) {
     if (game.timeLower === game.timeUpper) {

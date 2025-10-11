@@ -1,4 +1,4 @@
-import {Game} from "./GameSchema";
+import {Game} from "../types/GameSchema";
 
 export function makePlayers(game: Game) {
     if (game.minimumPlayers === game.maximumPlayers) {

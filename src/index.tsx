@@ -2,7 +2,7 @@ import {render} from 'preact';
 import './style.css';
 import {getGames} from "./functions/getGames";
 import {useEffect, useState} from 'preact/compat';
-import {Game} from "./functions/GameSchema";
+import {Game} from "./types/GameSchema";
 import {makeDuration} from "./functions/makeDuration";
 import {makePlayers} from "./functions/makePlayers";
 
@@ -12,7 +12,8 @@ export function App() {
     const [awards, setAwards] = useState<Award[]>()
     const [filterSelections, setFilterSelections] = useState<FilterSelections>({
         season: null,
-        award: null
+        award: null,
+        search: null,
     })
 
     useEffect(() => {
@@ -50,7 +51,8 @@ export function App() {
                     setAwards(awards);
                     setFilterSelections({
                         award: null,
-                        season: seasons[seasons.length - 1].id
+                        season: seasons[seasons.length - 1].id,
+                        search: null,
                     })
                 })
         }
@@ -67,6 +69,13 @@ export function App() {
                 if (!filterSelections.award) return true;
                 const gameAwards = [...g.awards, ...g.runnerUpAwards];
                 return gameAwards.find(ga => ga._id === filterSelections.award);
+            })
+            .filter(g => {
+                if (!filterSelections.search) return true;
+                const searchLowerCase = filterSelections.search.toLowerCase();
+                if (g.name.toLowerCase().search(searchLowerCase) > -1) return true;
+                return g.summary.toLowerCase().search(searchLowerCase) > -1;
+
             })
             .sort((a, b) => {
                 if (b.name > a.name) return -1;
@@ -108,6 +117,17 @@ export function App() {
                                 return <option value={a.id}>{a.name}</option>
                             })}
                         </select>
+                    </label>
+                    <label>
+                        <span className="cudo-grid__select-label">Search</span>
+                        <input type="search" onInput={(event) => {
+                            setFilterSelections(prevState => {
+                                return {
+                                    ...prevState,
+                                    search: event.currentTarget.value
+                                }
+                            })
+                        }} />
                     </label>
                     <div>
                         Legend:

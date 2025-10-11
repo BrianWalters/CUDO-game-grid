@@ -1,5 +1,5 @@
 import {client} from "../client";
-import {Game, gameSchema, query} from "./GameSchema";
+import {Game, gameSchema, query} from "../types/GameSchema";
 
 export async function getGames(): Promise<Game[]> {
     const games = await client.fetch(query)
