@@ -140,6 +140,10 @@ export function App() {
                     {gamesToShow().map(g => {
                         return (
                             <div className="cudo-grid__game-card" key={g._id}>
+                                <p className="cudo-grid__season-badge" data-season={parseInt(g.season.name.slice(6))}>
+                                    <span className="cudo-grid__season-badge-text">Season</span>
+                                    <span className="cudo-grid__season-badge-number">{parseInt(g.season.name.slice(6))}</span>
+                                </p>
                                 <p class="cudo-grid__name">{g.name}</p>
                                 <p>{makePlayers(g)}</p>
                                 <p>{makeDuration(g)}</p>
@@ -150,7 +154,6 @@ export function App() {
                                         </li>
                                     ))}
                                 </ul>
-                                <p>{g.season.name}</p>
                                 <ul class="cudo-grid__award-list">
                                     {g.awards.map(a => (
                                         <li key={a._id}>

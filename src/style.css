@@ -30,12 +30,58 @@
 .cudo-grid__name {
     font-size: 1.5rem;
     font-weight: bold;
+    padding-right: 4.5rem;
 }
 
 .cudo-grid__game-card {
     border: 1px solid #333;
     border-radius: 1rem;
     padding: 1rem;
+    position: relative;
+}
+
+.cudo-grid__season-badge {
+    background-color: black;
+    border-top-right-radius: 1rem;
+    color: white;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    font-size: 1.25rem;
+    font-family: monospace;
+    height: 6.5rem;
+    margin: 0;
+    overflow: hidden;
+    padding: 0.5rem;
+    position: absolute;
+    text-align: right;
+    top: 0;
+    right: 0;
+    width: 6.5rem;
+}
+
+.cudo-grid__season-badge[data-season="1"] { background-color: red; }
+.cudo-grid__season-badge[data-season="2"] { background-color: rebeccapurple; }
+.cudo-grid__season-badge[data-season="3"] { background-color: teal; }
+.cudo-grid__season-badge[data-season="4"] { background-color: darkgreen; }
+.cudo-grid__season-badge[data-season="5"] { background-color: chocolate; }
+.cudo-grid__season-badge[data-season="6"] { background-color: tomato; }
+.cudo-grid__season-badge[data-season="7"] { background-color: crimson; }
+.cudo-grid__season-badge[data-season="8"] { background-color: deeppink; }
+.cudo-grid__season-badge[data-season="9"] { background-color: navy; }
+.cudo-grid__season-badge[data-season="10"] { background-color: chartreuse; color: black; }
+.cudo-grid__season-badge[data-season="11"] { background-color: aqua; color: black; }
+.cudo-grid__season-badge[data-season="12"] { background-color: saddlebrown; }
+.cudo-grid__season-badge[data-season="13"] { background-color: steelblue; }
+.cudo-grid__season-badge[data-season="14"] { background-color: seagreen; }
+.cudo-grid__season-badge[data-season="15"] { background-color: darkorange; }
+.cudo-grid__season-badge[data-season="16"] { background-color: mediumorchid; }
+.cudo-grid__season-badge[data-season="17"] { background-color: olivedrab; }
+.cudo-grid__season-badge[data-season="18"] { background-color: darkmagenta; }
+.cudo-grid__season-badge[data-season="19"] { background-color: coral; }
+.cudo-grid__season-badge[data-season="20"] { background-color: peru; }
+
+.cudo-grid__season-badge-number {
+    display: block;
+    font-size: 2rem;
 }
 
 .cudo-grid__designer-list {
